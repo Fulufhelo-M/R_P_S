@@ -13,12 +13,14 @@ try:
     player_pick = input("\nEnter Your Pick (Bye to exit): \n").lower()
 
     if player_pick == 'bye':
-        print("Goodbye :)")
+        message = "Goodbye :)"
     elif pc_pick == player_pick:
-        print(f"\nComputer picked {pc_pick}.\n\nIt's a draw!\n")
+        message = f"\nComputer picked {pc_pick}.\n\nIt's a draw!\n"
     elif valid_choice.index(player_pick) == beats_vc.index(pc_pick):
-        print(f"\nComputer picked {pc_pick}.\n\nYou won!\n")
+        message = f"\nComputer picked {pc_pick}.\n\nYou won!\n"
     else:
-        print(f"\nComputer picked  {pc_pick}.\n\nYou lost!\n")
+        message = f"\nComputer picked  {pc_pick}.\n\nYou lost!\n"
 except: 
-    print("Oops. Try again.")
+    message = "Oops. Try again."
+
+print(message)
