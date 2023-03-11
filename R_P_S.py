@@ -1,12 +1,13 @@
 import random 
 
-print("...rock...")
+print("\n\n...rock...")
 print("...paper...")
 print("...scissors...")
 
 valid_choice = ('rock','paper','scissors')
 beats_vc = ('scissors','rock','paper')
 run = True
+quitter = "\nPlayer quit the game.\n"
 
 try:
     while run:   
@@ -14,9 +15,9 @@ try:
         player_wins = 0
         draws = 0
 
-        games_to_play = input("\nLet's play!! Best of? (Bye to exit): \n")
+        games_to_play = input("\nLET'S PLAY!\nBest Of? (bye to exit): ").lower()
         if games_to_play == 'bye':
-            print("\nPlayer quit the game\n")
+            print(quitter)
             break
 
         else:
@@ -26,9 +27,9 @@ try:
                 pc_int = random.randint(0,2)
                 pc_pick = valid_choice[pc_int]
 
-                player_pick = input("\nEnter Your Pick (Bye to exit): \n").lower()
+                player_pick = input("\nEnter Your Pick (bye to exit): \n").lower()
                 if player_pick == 'bye':
-                    print("\nPlayer quit the game\n")
+                    print(quitter)
                     break
                 else:
                     if pc_pick == player_pick:
@@ -43,11 +44,11 @@ try:
                     print(message)
 
         if  pc_wins > player_wins:
-             message = f"\nPC won {pc_wins} out of {games_to_play} games\nTotal draws = {draws}\nBetter Luck Next Time"
+             message = f"\nComputer won {pc_wins} out of {games_to_play} games\nTotal draws = {draws}\nBetter luck next time."
         if  pc_wins < player_wins:
-             message = f"\nPlayer won {player_wins} out of {games_to_play} games\nTotal draws = {draws}\nYou Crunshed It"
+             message = f"\nPlayer won {player_wins} out of {games_to_play} games\nTotal draws = {draws}\nYou crunshed it!"
         if  pc_wins == player_wins:
-             message = f"\nPC won {pc_wins} and Player won {player_wins} out of {games_to_play} games\nTotal draws = {draws}\nYou've met your match it seems"
+             message = f"\nComputer won {pc_wins} and Player won {player_wins} out of {games_to_play} games\nTotal draws = {draws}\nYou've met your match it seems."
         print(message)
 
         keep_playing = input("\nKeep playing (Y/N)?: ").lower()
